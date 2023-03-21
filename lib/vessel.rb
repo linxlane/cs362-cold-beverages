@@ -10,4 +10,8 @@ class Vessel
   def empty?
     @contents == []
   end
+
+  def fill
+    @contents << 'liquid'
+  end
 end
