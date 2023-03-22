@@ -77,4 +77,15 @@ describe 'A refrigerator' do
 
     expect(fridge.unplug).to eq(:off)
   end
+
+  it 'can set the chiller level' do
+    chiller = Chiller.new
+    freezer = Freezer.new
+    waterReservoir = WaterReservoir.new
+    waterDispenser = WaterDispenser.new(waterReservoir)
+    fridge = Refrigerator.new(chiller, freezer, waterDispenser, waterReservoir)
+
+    fridge.set_chiller_level(7)
+    expect(chiller.temperature).to eq(35)
+  end
 end
