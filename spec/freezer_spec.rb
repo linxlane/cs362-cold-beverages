@@ -21,6 +21,14 @@ describe 'A freezer' do
 
   it 'can have contents added' do
     freezer = Freezer.new
-    expect(freezer.add("drink").length).to eq(1)
+    itemOne = Item.new('thingOne', 5)
+    expect(freezer.add(itemOne).length).to eq(1)
+  end
+
+  it 'can calculate remaining capacity' do
+    freezer = Freezer.new
+    itemOne = Item.new('thingOne', 5)
+    freezer.add(itemOne)
+    expect(freezer.remaining_capacity).to eq(95)
   end
 end
