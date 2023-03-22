@@ -7,6 +7,16 @@ describe 'A water dispenser' do
     expect(waterDispenser).to respond_to(:reservoir)
   end
 
+  it 'can fill vessels' do
+    vessel = Vessel.new('cup', 20)
+    reservoir = WaterReservoir.new(100, 100)
+    dispenser = WaterDispenser.new(reservoir)
+    dispenser.fill(vessel)
+    
+    expect(vessel.empty?).to be_falsey
+    expect(reservoir.current_water_volume).to eq(80)
+  end
+
   it 'can dispense' do
     vessel = Vessel.new('cup', 20)
     reservoir = WaterReservoir.new(100, 100)
