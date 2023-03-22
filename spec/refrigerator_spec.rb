@@ -99,4 +99,14 @@ describe 'A refrigerator' do
     fridge.set_freezer_level(6)
     expect(freezer.temperature).to eq(10)
   end
+
+  it 'has a to string' do
+    chiller = Chiller.new
+    freezer = Freezer.new
+    waterReservoir = WaterReservoir.new
+    waterDispenser = WaterDispenser.new(waterReservoir)
+    fridge = Refrigerator.new(chiller, freezer, waterDispenser, waterReservoir)
+
+    expect(fridge.to_s).to eq("Power: off\nStorage: 200 of 200 available\nTemps: Chiller is 70, Freezer is 70\nWater: Reservoir has 0 remaining.\n")
+  end
 end
