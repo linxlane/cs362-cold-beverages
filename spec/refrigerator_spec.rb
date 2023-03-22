@@ -43,4 +43,18 @@ describe 'A refrigerator' do
     fridge = Refrigerator.new(chiller, freezer, waterDispenser, waterReservoir)
     expect(fridge.total_capacity).to eq(200)
   end
+
+  it 'has a remaining capacity' do
+    itemOne = Item.new('ice cream', 15)
+    itemTwo = Item.new('eggs', 12)
+    chiller = Chiller.new
+    freezer = Freezer.new
+    waterReservoir = WaterReservoir.new
+    waterDispenser = WaterDispenser.new(waterReservoir)
+    fridge = Refrigerator.new(chiller, freezer, waterDispenser, waterReservoir)
+    chiller.add(itemTwo)
+    freezer.add(itemOne)
+
+    expect(fridge.remaining_capacity).to eq(173)
+  end
 end
