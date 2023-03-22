@@ -10,4 +10,16 @@ describe 'A refrigerator' do
     
     expect(fridge).to be_a_kind_of(Refrigerator)
   end
+
+  it 'can chill items' do
+    item = Item.new('drink', 10)
+    chiller = Chiller.new
+    freezer = Freezer.new
+    waterReservoir = WaterReservoir.new
+    waterDispenser = WaterDispenser.new(waterReservoir)
+    fridge = Refrigerator.new(chiller, freezer, waterDispenser, waterReservoir)
+
+    fridge.chill(item)
+    expect(chiller.remaining_capacity).to eq(90)
+  end
 end
