@@ -31,4 +31,10 @@ describe 'A freezer' do
     freezer.add(itemOne)
     expect(freezer.remaining_capacity).to eq(95)
   end
+
+  it 'can set the level' do
+    freezer = Freezer.new
+    freezer.set_level(4)
+    expect(freezer.temperature).to equal(30)
+  end
 end
