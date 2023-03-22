@@ -18,4 +18,9 @@ describe 'A freezer' do
     freezer = Freezer.new
     expect(freezer.turn_off).to eq(:off)
   end
+
+  it 'can have contents added' do
+    freezer = Freezer.new
+    expect(freezer.add("drink").length).to eq(1)
+  end
 end
