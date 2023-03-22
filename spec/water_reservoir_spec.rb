@@ -26,4 +26,10 @@ describe 'A water reservoir' do
     reservoir.drain(5)
     expect(reservoir.current_water_volume).to eq(5)
   end
+
+  it 'will not go negative when drained' do
+    reservoir = WaterReservoir.new(10, 10)
+    reservoir.drain(15)
+    expect(reservoir.current_water_volume).to eq(0)
+  end
 end
