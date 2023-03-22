@@ -96,7 +96,7 @@ describe 'A refrigerator' do
     waterDispenser = WaterDispenser.new(waterReservoir)
     fridge = Refrigerator.new(chiller, freezer, waterDispenser, waterReservoir)
 
-    fridge.set_chiller_level(10)
-    expect(chiller.temperature).to eq(20)
+    fridge.set_freezer_level(6)
+    expect(freezer.temperature).to eq(10)
   end
 end
