@@ -8,4 +8,9 @@ describe 'A freezer' do
     expect(freezer.capacity).to eq(100)
     expect(freezer.temperature).to eq(70)
   end
+
+  it 'can be turned on' do
+    freezer = Freezer.new
+    expect(freezer.turn_on).to eq(:on)
+  end
 end
